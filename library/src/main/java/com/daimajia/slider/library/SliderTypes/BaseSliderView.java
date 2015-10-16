@@ -242,9 +242,8 @@ public abstract class BaseSliderView {
                     .setImageRequest(ImageRequest.fromUri(mUrl))
                     .build();
         }else if(mUrl!=null && mSmallImageUrl != null){
-            controller = Fresco.newDraweeControllerBuilder().setControllerListener(controllerListener).setLowResImageRequest(ImageRequest.fromUri(mSmallImageUrl))
-                    .setImageRequest(ImageRequest.fromUri(mUrl))
-                    .build();
+            controller = ((PipelineDraweeControllerBuilder)((PipelineDraweeControllerBuilder)((PipelineDraweeControllerBuilder)Fresco.newDraweeControllerBuilder().setControllerListener(controllerListener)).setLowResImageRequest(ImageRequest.fromUri(this.mSmallImageUrl))).setImageRequest(ImageRequest.fromUri(this.mUrl))).build();
+            //controller = Fresco.newDraweeControllerBuilder().setControllerListener(controllerListener).setLowResImageRequest(ImageRequest.fromUri(mSmallImageUrl)).setImageRequest(ImageRequest.fromUri(mUrl)).build();
         }else{
             return;
         }
